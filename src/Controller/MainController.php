@@ -13,6 +13,18 @@ class MainController extends AbstractController
     #[Route('/')]
     public function homepage(): Response
     {
-        return new Response('<strong>Starshop</strong>: your monopoly busting option for Starship parts!');
+        $starshipCount = 457;
+
+        $myShip = [
+            'name' => 'USS LeafyCruiser (NCC-001)',
+            'class' => 'Garden',
+            'captain' => 'jean-Luc Pickles',
+            'status' => 'under construction',
+        ];
+
+        return $this->render('main/homepage.html.twig', [
+            'numberOfStarships' => $starshipCount,
+            'myShip' => $myShip,
+        ]);
     }
 }
